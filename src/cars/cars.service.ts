@@ -6,12 +6,13 @@ import { CreateCarDto } from './dto/create-car.dto';
 @Injectable()
 export class CarsService {
     private cars: Car[] = [
-        { id: uuid(), name: 'Ford', year: '2000' , model: 'Focus'},
-        { id: uuid(), name: 'Fiat', year: '2001' , model: '500'},
-        { id: uuid(), name: 'VW', year: '2002' , model: 'Golf'},
-        { id: uuid(), name: 'Audi', year: '2003' , model: 'A4'},
-        { id: uuid(), name: 'BMW', year: '2004' , model: 'X5'},
-        { id: uuid(), name: 'Mercedes', year: '2005' , model: 'C300'},];
+        // { id: uuid(), name: 'Ford', year: '2000' , model: 'Focus'},
+        // { id: uuid(), name: 'Fiat', year: '2001' , model: '500'},
+        // { id: uuid(), name: 'VW', year: '2002' , model: 'Golf'},
+        // { id: uuid(), name: 'Audi', year: '2003' , model: 'A4'},
+        // { id: uuid(), name: 'BMW', year: '2004' , model: 'X5'},
+        // { id: uuid(), name: 'Mercedes', year: '2005' , model: 'C300'}
+    ];
 
     getAllCars() {
         return this.cars;
@@ -48,5 +49,8 @@ export class CarsService {
     deleteCar(id: string) {
         const car = this.getCarById(id);
         this.cars = this.cars.filter(car => car.id !== id);
+    }
+    fullCarsWithSeedData(cars: Car[]) {
+        this.cars = cars;
     }
 }
